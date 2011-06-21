@@ -1,3 +1,27 @@
+------------------------------------------------------------------------------------------------------------------------
+- mimedrop jQuery plugin
+------------------------------------------------------------------------------------------------------------------------
+
+mimedrop is a jQuery based HTML5 drag and drop handler plugin based on the droparea plugin by Goker Cebici. When dropping
+one or more files to a mimedrop enabled area a suitable callback is fired. Callbacks can be registered by giving
+one or more mimetypes with optional wildcards. Using wildcards offers easy to implement fallback solutions.
+
+Example:
+var handlers = [
+    ['text/javascript', function(file, index) {/* show file in syntax highlighter */}],
+    ['text/html', function(file, index) {/* push content to iframe */}],
+    ['text/*', function (file, index) {/* fill textarea with plain text */}],
+    ['*/*', function(file, index) {/* handle unsupported type */}]
+];
+
+The first element can be a string or an array of string. By providing an array, each type will be handled by the
+given callback. The order of the handler elements define their priority. Defining */* as first handler will prevent all
+other handlers from being called.
+
+------------------------------------------------------------------------------------------------------------------------
+Original README
+------------------------------------------------------------------------------------------------------------------------
+
 droparea is a HTML5 drag and drop image file uploader jQuery plug-in and a php script for server-side.
 I developed it to use on my Edirne project.
 I've only tested it on Google Chrome (11.0.696.57) and Mozilla Firefox (3.6.17) and it works enough for me for now!
